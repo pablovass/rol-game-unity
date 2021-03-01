@@ -16,16 +16,14 @@ public class Player : MonoBehaviour
     Vector2 facingDirection;
     [SerializeField] Transform bulletPrefabs;
     bool gunLoaded = true; 
-
     [SerializeField]float fireRate; 
-
-    // Start is called before the first frame update
+    [SerializeField]int health = 5;
+   
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         h=Input.GetAxis("Horizontal"); 
@@ -52,5 +50,21 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1/fireRate);  
         gunLoaded = true;
+    }
+    public void TakeDamage()
+    {
+        health--;
+        if (health <= 0)
+        {
+           // GAME OVER
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<Enemy>().TakeDamage();
+           
+        }
     }
 }

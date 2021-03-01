@@ -1,17 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    //instancia de la velocidad de la vala
+    
     [SerializeField] float speed=6;
-    // Update is called once per frame
+    private void Start()
+    {
+        Destroy(gameObject,5);
+    }
+
     void Update()
-    {   //le decimos que valla a derechar 
-        //con delta time y con la variable de speed le regulamos la vecidad.
+    {     transform.position += transform.right * Time.deltaTime * speed;
         
-        transform.position += transform.right * Time.deltaTime * speed;
+    }
+     private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<Enemy>().TakeDamage();   
+            Destroy(gameObject);
+        }
         
+       
     }
 }
