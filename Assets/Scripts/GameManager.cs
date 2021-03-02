@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1);
             time--;
         }
+      
         gameOver = true;
         UIManager.Instance.ShowGameOverScreen();
 

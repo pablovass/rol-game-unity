@@ -6,13 +6,12 @@ using Random = UnityEngine.Random;
 
 public class ItemSpawner : MonoBehaviour
 {
-    
     [SerializeField]  GameObject checkpointPrefab;
     [SerializeField] int checkpointSpawnDelay = 10;
     [SerializeField] float spawnRadius;
     [SerializeField]  GameObject[] powerUpPrefab;
     [SerializeField] int powerUpSpawnDelay = 12;
-
+    
     void Start()
     {
         StartCoroutine(SpawnCheackpointRoutine());
@@ -25,11 +24,11 @@ public class ItemSpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(checkpointSpawnDelay);
             Vector2 randomPosition = Random.insideUnitCircle * spawnRadius;
-            Instantiate(checkpointPrefab, randomPosition,quaternion.identity); 
-            
+            Instantiate(checkpointPrefab, randomPosition, quaternion.identity);
         }
-       
+
     }
+
     IEnumerator SpawnPowerUpRoutine()
     {
         while (true)
@@ -38,8 +37,6 @@ public class ItemSpawner : MonoBehaviour
             Vector2 randomPosition = Random.insideUnitCircle * spawnRadius;
             int random = Random.Range(0, powerUpPrefab.Length);
             Instantiate(powerUpPrefab[random], randomPosition,quaternion.identity); 
-            
-            
         }
     }
 }

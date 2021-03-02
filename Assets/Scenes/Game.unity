@@ -403,7 +403,7 @@ MonoBehaviour:
   health: 8
   invulnerableTime: 3
   anim: {fileID: 1846842308}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 1846842309}
 --- !u!212 &162476992
 SpriteRenderer:
   m_ObjectHideFlags: 0

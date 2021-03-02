@@ -24,16 +24,15 @@ public class Player : MonoBehaviour
     [SerializeField] Animator anim ;
     [SerializeField]  SpriteRenderer spriteRenderer;
 
-public int Health { get=>health;
-         set
+public int Health 
+{
+    get=>health;
+    set
          {
              health = value;
              UIManager.Instance.UpdateUIHelth(health);
-         } }
-    void Start()
-    {
-        
-    }
+         } 
+}
 
     void Update()
     {
@@ -43,7 +42,7 @@ public int Health { get=>health;
         moveDirection.y = v;
         
         transform.position += moveDirection * Time.deltaTime * speed; 
-        //la mira
+        
         facingDirection= camera.ScreenToWorldPoint(Input.mousePosition)- transform.position;
         aim.position = transform.position + (Vector3)facingDirection.normalized;
         
@@ -52,16 +51,13 @@ public int Health { get=>health;
              gunLoaded = false;
              float angle = Mathf.Atan2(facingDirection.y, facingDirection.x) * Mathf.Rad2Deg;
              Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-             // hacer que las balas que disparemos sean diferentes
              Transform bulletClone=Instantiate(bulletPrefabs,transform.position,targetRotation);
-             //condicional que nos va a dar que tipo de vala va ser 
              if (powerShotEnabled)
              {
                  bulletClone.GetComponent<Bullet>().powerShot = true;
              }
              StartCoroutine(ReloadGun());
          }
-        //Contro la animacion
          anim.SetFloat("Speed",moveDirection.magnitude);
          if (aim.position.x > transform.position.x)
          {
@@ -106,6 +102,7 @@ public int Health { get=>health;
             switch (collision.GetComponent<PowerUp>().powerUpType)
             {
                 case PowerUp.PowerUpType.FireRateIncrease:
+                    
                     fireRate++;
                     break;
                 case PowerUp.PowerUpType.PowerShot:
