@@ -2,20 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
-    // para controlar la velocidad de la persecucion 
-    [SerializeField] float speed = 6;
-    //REFERENCIA NUESTRO PLAYER 
+    
+     [SerializeField] float speed = 6;
      Transform player;
-     // la salud d la vida 
-     [SerializeField]int health = 5;
-
+     [SerializeField] int scorePoint = 100;
+     [SerializeField] int health = 5;
 
      void Start()
      {
        player = FindObjectOfType<Player>().transform;
+       GameObject[] spawnPoint = GameObject.FindGameObjectsWithTag("SpawnPoint");
+       int randomSpawnPoint = Random.Range(0,spawnPoint.Length);
+       transform.position = spawnPoint[randomSpawnPoint].transform.position;
      }
 
      private void Update()
@@ -36,6 +38,7 @@ public class Enemy : MonoBehaviour
          health--;
          if (health <= 0)
          {
+             GameManager.Instance.Score += scorePoint;
              Destroy(gameObject);
          }
      }        

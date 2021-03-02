@@ -2,13 +2,28 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int difficulty;
     public static GameManager Instance; 
-    
-    [SerializeField]int time = 30;
+    public int time = 30;
+    public int difficulty=1;
+    public bool gameOver;  
+    [SerializeField]  int score;
+   
+
+    public int Score{
+        get => score;
+        set{
+            score = value;
+            UIManager.Instance.UpdateUIScore(score); 
+            if (score % 1000 == 0)
+            {
+                difficulty++;
+            }
+        }
+    }
     private void Awake()
     {
         if (Instance == null)
@@ -29,5 +44,14 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1);
             time--;
         }
+        gameOver = true;
+        UIManager.Instance.ShowGameOverScreen();
+
+    }
+
+    public void PlayAgain()
+    {
+        
+        SceneManager.LoadScene("Game");
     }
 }
