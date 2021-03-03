@@ -179,7 +179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   addedTime: 5
-  checkpointClip: {fileID: 8300000, guid: d8a5b82168e1f384ba245d490355197c, type: 3}
 --- !u!50 &5904018665081820970
 Rigidbody2D:
   serializedVersion: 4
@@ -211,7 +210,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.013828307, y: 0.012908518}
