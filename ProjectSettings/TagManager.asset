@@ -4,15 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Aim
   - Enemy
   - Bullet
   - SpawnPoint
+  - CheckPoint
   - PowerUp
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - EditorRender
+  - 
   - Water
   - UI
   - 
@@ -44,4 +46,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: fondo
+    uniqueID: 299442189
+    locked: 0
+  - name: primerplano
+    uniqueID: 3331927161
     locked: 0

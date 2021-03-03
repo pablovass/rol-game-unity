@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
      Transform player;
      [SerializeField] int scorePoint = 100;
      [SerializeField] int health = 5;
+     [SerializeField] AudioClip impactClip;
 
      void Start()
      {
@@ -23,7 +24,7 @@ public class Enemy : MonoBehaviour
      private void Update()
      {
          Vector2 direction = player.position - transform.position;
-         transform.position += (Vector3) direction * Time.deltaTime*speed;
+         transform.position += (Vector3) direction.normalized * Time.deltaTime*speed;
      }
      private void OnTriggerEnter2D(Collider2D collision)
      {
@@ -36,10 +37,11 @@ public class Enemy : MonoBehaviour
      public void TakeDamage()
      {
          health--;
+         AudioSource.PlayClipAtPoint(impactClip,transform.position);
          if (health <= 0)
          {
              GameManager.Instance.Score += scorePoint;
-             Destroy(gameObject);
+             Destroy(gameObject,0.1f);
          }
      }        
        

@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(CountdownRoutine());
+        UIManager.Instance.UpdateUIScore(score);
     }
     
     IEnumerator CountdownRoutine()
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             time--;
+            UIManager.Instance.UpdateUITime(time);
         }
       
         gameOver = true;
