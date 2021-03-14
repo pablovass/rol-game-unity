@@ -1,10 +1,11 @@
 # Rol game unity
-It is a video game made in unity engine in its latest version:
+It is a video game made in unity engine in version 19 LTS:
+it's not finished yet.
 
 # How to play the game?
-You will be able to find an .exe file to run the game:
+you will be able to play this game in this link:
 
-If you can't find it, it's because it's not finished yet
+https://pablovass.github.io/calaberas-game/
   ...
 
 ## Built with 🛠️
