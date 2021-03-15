@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
         invulnerable = true;
         fireRate = 1;
         powerShotEnabled = false;
-        cameraController.Shake();
+        //cameraController.Shake();
         StartCoroutine(MakeVulnerableAgain());
         if (Health <= 0)
         {

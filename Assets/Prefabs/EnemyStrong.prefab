@@ -148,10 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829364908b39f5c4fb1bb1c18543158b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  scorePoint: 100
   health: 1
+  speed: 4
+  scorePoints: 100
   impactClip: {fileID: 8300000, guid: de9e33dbe81a91342af9c9c7fdbd5680, type: 3}
+  deathClip: {fileID: 0}
 --- !u!50 &8501247657625044346
 Rigidbody2D:
   serializedVersion: 4
@@ -183,7 +184,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.01420939, y: 0.07207951}

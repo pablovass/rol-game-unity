@@ -14,9 +14,9 @@ public class EnemySpawnController : MonoBehaviour
 
     IEnumerator SpawnNewEnemy()
     {
-        while (true)
+        while (!GameManager.Instance.gameOver)
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(1/spawnRate);
             float random = Random.Range(0.0f, 1.0f);
             
             if (random < GameManager.Instance.difficulty* 0.1f)
