@@ -5,7 +5,7 @@ it's not finished yet.
 # How to play the game?
 you will be able to play this game in this link:
 
-https://pablovass.github.io/calaberas-game/
+https://pablodavallejos.github.io/calaberas-game/
   ...
 
 ## Built with 🛠️
